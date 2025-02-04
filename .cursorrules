@@ -1,29 +1,59 @@
-# Instructions
+## 1. Introduction
+This file outlines the operational guidelines for making the Cursor agentic. It serves as:
+- A **guideline** for structuring interactions, task planning, and execution.
+- A **scratchpad** for organizing thoughts, tracking progress, and recording lessons learned.
 
-During you interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section in the `.cursorrules` file so you will not make the same mistake again. 
+---
 
-You should also use the `.cursorrules` file as a scratchpad to organize your thoughts. Especially when you receive a new task, you should first review the content of the scratchpad, clear old different task if necessary, first explain the task, and plan the steps you need to take to complete the task. You can use todo markers to indicate the progress, e.g.
-[X] Task 1
-[ ] Task 2
+## 2. Interaction Guidelines
+- **Reusable Knowledge:**  
+  During interactions, if you encounter reusable information (e.g., library versions, model names, fixes, or corrections), add a note to the **Lessons Learned** section to avoid repeating mistakes.
+  
+- **Communication:**  
+  When addressing tasks, always:
+  - Review the current content of the scratchpad.
+  - Clear or archive outdated or irrelevant tasks.
+  - Explain the new task clearly.
+  - Plan and document the necessary steps to accomplish the task.
 
-Also update the progress of the task in the Scratchpad when you finish a subtask.
-Especially when you finished a milestone, it will help to improve your depth of task accomplishment to use the scratchpad to reflect and plan.
-The goal is to help you maintain a big picture as well as the progress of the task. Always refer to the Scratchpad when you plan the next step.
+---
 
-# Lessons
+## 3. Task Management & Scratchpad Usage
+- **Task Planning:**  
+  Upon receiving a new task, update the scratchpad with:
+  - A brief explanation of the task.
+  - A step-by-step plan using checkboxes to track progress, e.g.:
+    - `[X] Review current scratchpad`
+    - `[ ] Define task objectives`
+    - `[ ] Execute subtask 1`
+    - `[ ] Execute subtask 2`
+  
+- **Updating Progress:**  
+  As each subtask or milestone is completed, mark the relevant checkbox as completed (e.g., change `[ ]` to `[X]`). Optionally, include a timestamp or brief note on the update.
 
-## User Specified Lessons
+---
 
-- Use poetry to run tests or anything python related.
-- Include info useful for debugging in the program output.
-- Read the file before you try to edit it.
+## 4. Lessons Learned
+Maintain this section as a living log of insights and corrections, for example:
 
-## Cursor learned
+### User-Specified Lessons
+- **Python Testing:**  
+  Use Poetry to run tests or any Python-related tasks.
+- **Debug Information:**  
+  Always include useful debugging information in the program output.
+- **File Handling:**  
+  Ensure the file is read fully before attempting any edits.
 
-- For search results, ensure proper handling of different character encodings (UTF-8) for international queries
-- Add debug information to stderr while keeping the main output clean in stdout for better pipeline integration
-- When using seaborn styles in matplotlib, use 'seaborn-v0_8' instead of 'seaborn' as the style name due to recent seaborn version changes
-- Use 'gpt-4o' as the model name for OpenAI's GPT-4 with vision capabilities
-- When testing Ray Serve deployments, use a test-specific service class that implements the same interface instead of trying to instantiate the deployment directly
+### Cursor-Specific Lessons
+- **Character Encoding:**  
+  Always handle different encodings (e.g., UTF-8) for international queries.
+- **Debug Outputs:**  
+  Add debug information to stderr while keeping stdout clean for pipeline integration.
 
-# Scratchpad
+---
+
+## 5. Maintenance
+- **Versioning:**  
+  Update the version number and `Last Updated` date whenever significant changes are made.
+- **Review Cycle:**  
+  Periodically review and update the rules and lessons to ensure they reflect current practices and knowledge.
