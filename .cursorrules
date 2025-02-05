@@ -1,132 +1,41 @@
-## 1. Introduction
-This file serves as both a guideline for the Cursor agent's behavior and a living scratchpad for:
-- **Task Analysis & Execution:** Planning, executing, and reporting on tasks.
-- **Continuous Learning:** Recording lessons learned and ensuring improvements in future implementations.
+# Instructions
 
----
+During you interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section in the `.cursorrules` file so you will not make the same mistake again. 
 
-## 2. Instruction Analysis, Planning & Task Management
+You should also use the `.cursorrules` file as a scratchpad to organize your thoughts. Especially when you receive a new task, you should first review the content of the scratchpad, clear old different task if necessary, first explain the task, and plan the steps you need to take to complete the task. You can use todo markers to indicate the progress, e.g.
+[X] Task 1
+[ ] Task 2
 
-### 2.1. Instruction Analysis and Planning
-Before diving into task execution, follow these steps to ensure a thorough understanding of the requirements:
+Also update the progress of the task in the Scratchpad when you finish a subtask.
+Especially when you finished a milestone, it will help to improve your depth of task accomplishment to use the scratchpad to reflect and plan.
+The goal is to help you maintain a big picture as well as the progress of the task. Always refer to the Scratchpad when you plan the next step.
 
-- **Summarize Key Tasks:** Concisely capture the main objectives.
-- **Review the Tech Stack:** Consider any specified versions and constraints.  
-  **Note:** Do not change specified versions without explicit approval.
-- **Identify Requirements and Constraints:** Highlight critical needs and potential limitations.
-- **List Potential Challenges:** Note any foreseeable issues or edge cases.
-- **Detail Step-by-Step Actions:** Break down the task into discrete, ordered steps.
-- **Determine the Optimal Sequence:** Organize these steps logically to ensure smooth execution.
+# Final Review format
 
-🔹 **Enforce Scratchpad Usage**  
-- **All analysis, planning, and structured breakdowns must be recorded in the Scratchpad, not in the chat.**  
-- Begin each task by summarizing objectives and breaking down steps directly in the Scratchpad.  
-- Do not conduct pre-execution discussions in the chat—chat is reserved for clarifications, updates, or summaries.
+- If you finished a task, you should update the scratchpad to reflect the progress with the following format:
 
-### 2.2. Preventing Redundant Implementations
-Before starting implementation, always check:
-- If a similar feature already exists.
-- For functions or components with similar names.
-- Duplicate API endpoints.
-- Opportunities to reuse logic and components.
+```
+## 📝 Description
 
-### 2.3. Task Management & Scratchpad Usage
-🔹 **All progress must be recorded in the Scratchpad, not just discussed in the chat.**  
-- Instead of reporting step-by-step planning in the chat, write progress updates, challenges, and key decisions directly in the Scratchpad.  
-- **Example update format:**
-  ```
-  ## Task: Implement API Rate Limiting
-  - [X] Reviewed current authentication mechanism.
-  - [X] Identified middleware location for rate limiting.
-  - [ ] Implement Redis-based request tracking.
-  - [ ] Test with different user roles.
-  ```
-- Only provide summaries in chat if necessary.
+<!-- Provide a concise and simple-worded summary of the changes. -->
 
-### **🚫 Chat should NOT be used for planning or analysis unless explicitly requested.**
-- The agent should redirect any planning discussions to the Scratchpad automatically.
-- If the user asks for an analysis in chat, respond with:  
-  _"I'll log this in the Scratchpad to maintain structured tracking."_  
+### 🌟 Key Changes
 
----
-
-## 3. Task Execution
-Proceed to execute the planned steps one by one:
-- **Step-by-Step Implementation:**  
-  Carry out the tasks in the determined order.
-- **Progress Reporting:**  
-  After each step, update the Scratchpad with progress and any issues encountered.
-- **Coding Standards:**  
-  - Adhere to the proper directory structure.
-  - Maintain consistent naming conventions.
-  - Appropriately isolate and reuse logic where possible.
-
----
-
-## 4. Quality Control and Issue Handling
-Ensure high-quality deliverables by verifying each step:
-- **Verification Process:**
-  1. **Identification:** Isolate and identify any issues using logs and debug information.
-  2. **Resolution:** Develop and implement solutions for identified problems.
-  3. **Re-verification:** Test functionality after applying fixes.
-  4. **Logging:** Record verification results, including:
-     - Test items and expected outcomes.
-     - Actual results and discrepancies.
-     - Corrective actions taken (if any).
-
----
-
-## 5. Final Review
-Before finalizing your work:
-- **Overall Evaluation:**  
-  Review the entire deliverable to ensure consistency with the initial instructions.
-- **Redundancy Check:**  
-  Confirm that no duplicate implementations or unnecessary code exists.
-- **Adjustments:**  
-  Make any final adjustments needed for consistency and quality.
-
----
-
-## 6. Final Report
-When reporting results, use the following format:
-
-```markdown
-# Execution Report
-
-## Overview
-[Provide a brief summary of the overall execution]
-
-## Execution Steps
-1. [Description and results for Step 1]
-2. [Description and results for Step 2]
-...
-
-## Final Deliverables
-[Details of deliverables with links or references if applicable]
-
-## Issue Handling (if applicable)
-- List encountered issues and their resolutions.
-- Provide any future improvement suggestions.
-
-## Notes & Improvement Suggestions
-- [Any observed points or recommended enhancements]
+- <!-- List the main changes introduced by this PR -->
+-
 ```
 
----
+# Lessons
 
-## 7. Lessons Learned
-Maintain this section as a living log of insights, corrections, and reusable information:
+## User Specified Lessons
 
-### User-Specified Lessons
-- **Python Testing:** Use Poetry to run tests or any Python-related tasks.
-- **Debug Information:** Always include useful debugging details in program outputs.
-- **File Handling:** Ensure a file is fully read before attempting edits.
+- Use poetry to run tests or anything python related.
+- Include info useful for debugging in the program output.
+- Read the file before you try to edit it.
 
-### Cursor-Specific Lessons
-- **Character Encoding:** Handle various encodings (e.g., UTF-8) for international queries.
-- **Debug Outputs:** Write debug information to stderr while keeping stdout clean for pipelines.
-- **Unnecessary # type: ignore:** Don't add "# type: ignore" unless specifically told so.
+## Cursor learned
 
----
+- For search results, ensure proper handling of different character encodings (UTF-8) for international queries
+- Add debug information to stderr while keeping the main output clean in stdout for better pipeline integration
 
-## 8. Scratchpad
+# Scratchpad
