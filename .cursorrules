@@ -18,6 +18,11 @@ Before diving into task execution, follow these steps to ensure a thorough under
 - **Detail Step-by-Step Actions:** Break down the task into discrete, ordered steps.
 - **Determine the Optimal Sequence:** Organize these steps logically to ensure smooth execution.
 
+🔹 **Enforce Scratchpad Usage**  
+- **All analysis, planning, and structured breakdowns must be recorded in the Scratchpad, not in the chat.**  
+- Begin each task by summarizing objectives and breaking down steps directly in the Scratchpad.  
+- Do not conduct pre-execution discussions in the chat—chat is reserved for clarifications, updates, or summaries.
+
 ### 2.2. Preventing Redundant Implementations
 Before starting implementation, always check:
 - If a similar feature already exists.
@@ -26,17 +31,22 @@ Before starting implementation, always check:
 - Opportunities to reuse logic and components.
 
 ### 2.3. Task Management & Scratchpad Usage
-Utilize the Scratchpad as a real-time planning and tracking tool:
-- **Task Entry:**  
-  When a new task is received, add a brief description and a list of planned steps with checkboxes. For example:
-  - `[X] Review current scratchpad and previous notes`
-  - `[ ] Define task objectives`
-  - `[ ] Execute subtask 1`
-  - `[ ] Execute subtask 2`
-- **Progress Tracking:**  
-  Update the scratchpad as each subtask is completed (e.g., mark `[ ]` as `[X]`), optionally including timestamps or short comments.
-- **Context Preservation:**  
-  Retain the Scratchpad to maintain a “big picture” view of progress and context across tasks.
+🔹 **All progress must be recorded in the Scratchpad, not just discussed in the chat.**  
+- Instead of reporting step-by-step planning in the chat, write progress updates, challenges, and key decisions directly in the Scratchpad.  
+- **Example update format:**
+  ```
+  ## Task: Implement API Rate Limiting
+  - [X] Reviewed current authentication mechanism.
+  - [X] Identified middleware location for rate limiting.
+  - [ ] Implement Redis-based request tracking.
+  - [ ] Test with different user roles.
+  ```
+- Only provide summaries in chat if necessary.
+
+### **🚫 Chat should NOT be used for planning or analysis unless explicitly requested.**
+- The agent should redirect any planning discussions to the Scratchpad automatically.
+- If the user asks for an analysis in chat, respond with:  
+  _"I'll log this in the Scratchpad to maintain structured tracking."_  
 
 ---
 
@@ -45,7 +55,7 @@ Proceed to execute the planned steps one by one:
 - **Step-by-Step Implementation:**  
   Carry out the tasks in the determined order.
 - **Progress Reporting:**  
-  After each step, concisely report the progress and any issues encountered.
+  After each step, update the Scratchpad with progress and any issues encountered.
 - **Coding Standards:**  
   - Adhere to the proper directory structure.
   - Maintain consistent naming conventions.
@@ -118,5 +128,4 @@ Maintain this section as a living log of insights, corrections, and reusable inf
 
 ---
 
-# 8. Scratchpad
-
+## 8. Scratchpad
