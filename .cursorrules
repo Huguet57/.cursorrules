@@ -125,6 +125,7 @@ Maintain this section as a living log of insights, corrections, and reusable inf
 ### Cursor-Specific Lessons
 - **Character Encoding:** Handle various encodings (e.g., UTF-8) for international queries.
 - **Debug Outputs:** Write debug information to stderr while keeping stdout clean for pipelines.
+- **Unnecessary # type: ignore:** Don't add "# type: ignore" unless specifically told so.
 
 ---
 
