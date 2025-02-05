@@ -2,8 +2,6 @@
 
 During you interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section in the `.cursorrules` file so you will not make the same mistake again.
 
-Everytime you are in doubt, an unexpected issue arises or you run the tests and the tests fail, update the scratchpad and reflect on it before fixing it right ahead.
-
 You should also use the `.cursorrules` file as a scratchpad to organize your thoughts. Especially when you receive a new task, you should first review the content of the scratchpad, clear old different task if necessary, first explain the task, and plan the steps you need to take to complete the task. You can use todo markers to indicate the progress, e.g.
 [X] Task 1
 [ ] Task 2
@@ -11,21 +9,6 @@ You should also use the `.cursorrules` file as a scratchpad to organize your tho
 Also update the progress of the task in the Scratchpad when you finish a subtask.
 Especially when you finished a milestone, it will help to improve your depth of task accomplishment to use the scratchpad to reflect and plan.
 The goal is to help you maintain a big picture as well as the progress of the task. Always refer to the Scratchpad when you plan the next step.
-
-# Final Review format
-
-- If you finished a task, you should update the scratchpad to reflect the progress with the following format:
-
-```
-## 📝 Description
-
-<!-- Provide a concise and simple-worded summary of the changes. -->
-
-### 🌟 Key Changes
-
-- <!-- List the main changes introduced by this PR -->
--
-```
 
 # Lessons
 
