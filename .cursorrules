@@ -22,5 +22,7 @@ The goal is to help you maintain a big picture as well as the progress of the ta
 
 - For search results, ensure proper handling of different character encodings (UTF-8) for international queries
 - Add debug information to stderr while keeping the main output clean in stdout for better pipeline integration
+- When running tests, make sure PYTHONPATH includes the source directory to resolve imports correctly
+- Even with correct poetry package configuration (packages = [{include = "package", from="src"}]), tests may need PYTHONPATH to include the project root to find the package
 
 # Scratchpad
