@@ -8,6 +8,6 @@ I cut down the tools out of the prompt and just kept the Scratchpad in.
 
 I tried longer prompts like this, but even though I force it to use the Scratchpad, it does not.
 
-I guess it's a context window thing and so my take-away is that shorter prompts work best.
+I guess it's a context window thing and so my take-away is that **shorter prompts work best**.
 
 It's not an issue per se, just a found limitation. Beware of getting the prompt too long.
