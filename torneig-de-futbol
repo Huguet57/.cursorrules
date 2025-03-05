@@ -1,0 +1,101 @@
+# Instructions
+
+During you interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section in the `.cursorrules` file so you will not make the same mistake again.
+
+You should also use the `.cursorrules` file as a scratchpad to organize your thoughts. Especially when you receive a new task, you should first review the content of the scratchpad, clear old different task if necessary, first explain the task, and plan the steps you need to take to complete the task. You can use todo markers to indicate the progress, e.g.
+[X] Task 1
+[ ] Task 2
+
+Also update the progress of the task in the Scratchpad when you finish a subtask.
+Especially when you finished a milestone, it will help to improve your depth of task accomplishment to use the scratchpad to reflect and plan.
+The goal is to help you maintain a big picture as well as the progress of the task. Always refer to the Scratchpad when you plan the next step.
+
+# Lessons
+
+## User Specified Lessons
+
+- Use poetry to run tests or anything python related.
+- Include info useful for debugging in the program output.
+- Read the file before you try to edit it.
+- Use Ruff for linting and formatting Python code as it's faster and more comprehensive than flake8/black
+- Set up pre-commit hooks to ensure code quality before committing changes
+- Address linting issues incrementally, starting with auto-fixable ones
+- Pay attention to SQLAlchemy and Pydantic deprecation warnings to future-proof the codebase
+- The simpler the implementation, the better
+- Always develop a module and add the tests just after. Don't add several modules that can be filled with errors
+- When implementing API endpoints, ensure all URLs have trailing slashes for consistency
+- When creating new API endpoints, make sure to update the main.py file to include the new router
+- Strive for simplicity first - implement only what's necessary and avoid feature creep
+- Add comprehensive type hints from the beginning to catch type-related bugs early
+- Adopt test-driven development (TDD) to ensure code meets requirements before implementation
+- Implement comprehensive error handling for all edge cases with descriptive error messages
+- Use verbose error messages that include relevant context for easier debugging
+- Set up logging infrastructure early and ensure logs capture meaningful debugging information
+- Use a standardized method naming convention across all CRUD modules for consistency
+- Create interface classes that enforce required method signatures for all implementations
+- Implement required CRUD methods completely before moving to API/UI layers
+- Standardize template naming conventions and folder structure across the application
+- Ensure all templates handle null/missing data gracefully with proper conditional checks
+- Use consistent response formats for all API endpoints (success/error structure)
+- Validate input data thoroughly at the API layer before passing to business logic
+- Implement proper separation of concerns between data access, business logic, and presentation
+- Set up continuous integration early to catch regressions before they reach production
+- Document expected behavior of each API endpoint with examples and edge cases
+- Use an API development environment (like Postman) to test APIs during development
+- Create a local development environment that closely mirrors production
+- Add database migrations from the start for easier schema evolution
+- Use feature flags to enable incremental testing of new features
+- Implement proper dependency injection for better testability and maintainability
+
+## Cursor learned
+
+- For search results, ensure proper handling of different character encodings (UTF-8) for international queries
+- Add debug information to stderr while keeping the main output clean in stdout for better pipeline integration
+- When running tests, make sure PYTHONPATH includes the source directory to resolve imports correctly
+- Even with correct poetry package configuration (packages = [{include = "package", from="src"}]), tests may need PYTHONPATH to include the project root to find the package
+- When creating architectural plans, always include testing strategy and iterative development approach with feedback cycles
+- Break down large documentation into separate files for better organization and easier reference
+- In SQLAlchemy, joinedload is imported from sqlalchemy.orm and not a method of the Session object. Always import it separately: from sqlalchemy.orm import joinedload
+- When writing APIs that return related objects, use joinedload to eagerly load relationships to avoid N+1 query issues and ensure related objects are included in responses
+- When writing test scripts for API endpoints, make sure to use the correct API routes with proper prefixes (e.g., '/api/tournaments/' instead of '/tournaments/')
+- Include status checks in test scripts to ensure proper error handling and debugging
+- When implementing new features, ensure all required API endpoints are created and properly registered in the main application
+- When creating schemas that require relationships, make sure to include the foreign key fields in both the model and schema
+- When designing API endpoints that retrieve or create resources with optional filtering, ensure all possible filter combinations are handled correctly (e.g., optional tournament_id in player statistics)
+- For statistics calculation functionality, always ensure proper update triggers are in place when related data changes, and include explicit update methods that can be called when needed
+- When fixing database-related issues, check if the necessary database tables exist and consider using Base.metadata.create_all(bind=engine) to create tables directly from models
+- Always verify that auxiliary methods required by core functionality are implemented (such as get_all_by_fields in the Match CRUD module)
+- When running a FastAPI server, make sure to kill previous instances before starting a new one to avoid "Address already in use" errors
+- When converting script-based tests to pytest, ensure field names in assertions match the actual schema field names (e.g., 'goals_scored' vs 'goals')
+- In FastAPI projects with direct CRUD implementations in API files, make sure to import and use those implementations correctly in other modules
+- When a CRUD module is referenced but doesn't exist (e.g., crud.tournament), check if it's implemented directly in the API file and import it from there
+- Always check the schema definitions to understand the expected field names and structure when writing tests
+- Use pytest markers to organize tests by functionality for easier selective test execution
+- Ensure proper pytest configuration with conftest.py and pytest.ini for consistent test behavior
+- For Pydantic V2+ models, use the newer model_config = {"from_attributes": True} syntax instead of the class Config approach
+- Replace deprecated orm_mode = True with from_attributes = True in Pydantic models to avoid deprecation warnings
+- Keep configuration styles consistent across all Pydantic models to avoid confusing warnings
+- When using pytest fixtures, ensure that custom fixtures don't override those from conftest.py to maintain consistent test database state
+- When a CRUD module is needed but not available in the app.crud namespace, check if there's a direct CRUD implementation in the API file (e.g., crud_tournament in tournament.py) and use that instead
+- In test assertions for API responses, be aware that some fields might be recalculated by the API and may not match the values you initially set
+- When fixing failing tests, first identify if the issue is with the test expectations or with the actual implementation
+- When working with templates, always add null checks for object attributes to prevent template rendering errors (e.g., `{{ object.attribute if object else 'Default' }}`)
+- For RESTful APIs, standardize error responses: return 404 for non-existent resources rather than 200 with empty data
+- When updating tests, ensure they reflect the actual behavior of the application, not the expected behavior
+- In Jinja2 templates, use conditional checks to handle potential None values in nested objects (e.g., `{{ obj.related.name if obj and obj.related else 'Unknown' }}`)
+- When creating UI templates, ensure they handle edge cases like missing or incomplete data gracefully
+- When updating imports, ensure that modules are imported from their correct locations, especially when CRUD operations are defined in API files rather than dedicated CRUD modules
+- For FastAPI applications using Starlette's TemplateResponse, use the new parameter order with request as the first parameter to avoid deprecation warnings
+- Check template file names and paths carefully when debugging template not found errors, as the actual file name might differ from what's referenced in the code
+- When implementing API endpoints that accept both URL path parameters and request body data, ensure that the request body schema matches the expected input, especially when using Pydantic models for validation
+- For team-related endpoints that handle players, ensure that the team_id is properly validated in both the URL path and request body to maintain data consistency
+- When using SQLAlchemy with SQLite and foreign key constraints, use text("PRAGMA foreign_keys = ON") to enable foreign key support
+- When testing database integrity constraints, ensure the database engine supports and has enabled the constraints you're testing
+- When working with templates, ensure that template file names match exactly what's used in the code (e.g., 'view.html' vs 'detail.html')
+- When returning template responses, include all necessary context variables that templates expect
+- Keep template naming conventions consistent across the application (e.g., using 'view.html' for detail views)
+- When testing template responses, verify both the status code and the presence of expected context variables
+- For form submissions, decide between redirects (303) and direct template responses (200) based on UX requirements
+- When filtering data in template views, include both the filter value and the filtered object in the context when needed
+
+# Scratchpad
